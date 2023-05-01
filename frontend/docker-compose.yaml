@@ -1,0 +1,9 @@
+services:
+  app:
+    container_name: matchera-frontend
+    build: .
+    image: matchera-frontend
+    volumes:
+      - ./:/app
+    ports:
+      - 3000:3000

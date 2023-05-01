@@ -1,0 +1,51 @@
+services:
+
+  frontend:
+    container_name: matchera-frontend
+    build: ./frontend
+    image: matchera-frontend
+    environment:
+      - REACT_APP_BASE_URL=http://localhost:8000/api/
+    volumes:
+      - ./frontend:/app
+    ports:
+      - 3001:3000
+    depends_on:
+      - backend
+
+
+  backend:
+    container_name: matchera-backend
+    build: ./backend
+    image: matchera-backend
+    volumes:
+      - ./backend:/app
+    ports:
+      - 8000:8000
+    depends_on:
+      dbConnection:
+        condition: service_completed_successfully
+
+  dbConnection:
+    container_name: matchera-database-dbConnection
+    image: mysql
+    command: mysql -hdb -uroot -pmatchera-db-password -e "CREATE DATABASE IF NOT EXISTS matchera"
+    depends_on:
+      - db
+    restart: on-failure
+
+  db:
+    container_name: matchera-database
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=matchera-db-password
+    volumes:
+      - matchera-db-volume:/var/lib/mysql
+
+networks:
+  default:
+    name: matchera-network
+
+volumes:
+  matchera-db-volume:
+    name: matchera-db-volume

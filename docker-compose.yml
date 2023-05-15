@@ -1,9 +1,9 @@
 services:
 
   frontend:
-    container_name: matchera-frontend
+    container_name: mostafa-frontend
     build: ./frontend
-    image: matchera-frontend
+    image: mostafa-frontend
     environment:
       - REACT_APP_BASE_URL=http://localhost:8000/api/
     volumes:
@@ -15,9 +15,9 @@ services:
 
 
   backend:
-    container_name: matchera-backend
+    container_name: mostafa-backend
     build: ./backend
-    image: matchera-backend
+    image: mostafa-backend
     volumes:
       - ./backend:/app
     ports:
@@ -27,25 +27,25 @@ services:
         condition: service_completed_successfully
 
   dbConnection:
-    container_name: matchera-database-dbConnection
+    container_name: mostafa-database-dbConnection
     image: mysql
-    command: mysql -hdb -uroot -pmatchera-db-password -e "CREATE DATABASE IF NOT EXISTS matchera"
+    command: mysql -hdb -uroot -pmostafa-db-password -e "CREATE DATABASE IF NOT EXISTS mostafa"
     depends_on:
       - db
     restart: on-failure
 
   db:
-    container_name: matchera-database
+    container_name: mostafa-database
     image: mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=matchera-db-password
+      - MYSQL_ROOT_PASSWORD=mostafa-db-password
     volumes:
-      - matchera-db-volume:/var/lib/mysql
+      - mostafa-db-volume:/var/lib/mysql
 
 networks:
   default:
-    name: matchera-network
+    name: mostafa-network
 
 volumes:
-  matchera-db-volume:
-    name: matchera-db-volume
+  mostafa-db-volume:
+    name: mostafa-db-volume

@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'api',
+        'guard' => 'workshop',
         'passwords' => 'users',
     ],
 
@@ -41,15 +41,15 @@ return [
             'provider' => 'users',
         ],
 
-        'api' => [
+        'workshop' => [
             'driver' => 'jwt',
             'provider' => 'users',
             'hash' => false,
         ],
 
-        'api_admin' => [
+        'provider' => [
             'driver' => 'jwt',
-            'provider' => 'admins',
+            'provider' => 'providers',
             'hash' => false,
         ],
     ],
@@ -77,9 +77,9 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        'admins' => [
+        'providers' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Admin::class,
+            'model' => App\Models\Provider::class,
         ],
 
         // 'users' => [

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 
 use Illuminate\Database\Seeder;
-use App\Models\Admin;
+use App\Models\Provider;
 class AdminSeeder extends Seeder
 {
     /**
@@ -15,10 +15,11 @@ class AdminSeeder extends Seeder
     public function run()
     {
         $data = [
-            'username' => 'admin',
+            'name' => "Mostafa provider",
+            'username' => 'provider',
             'password' => 'password'
         ];
 
-        Admin::create($data);
+        Provider::create($data);
     }
 }

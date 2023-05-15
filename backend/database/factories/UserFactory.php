@@ -19,16 +19,10 @@ class UserFactory extends Factory
     {
 
         return [
-            'first_name'    => $this->faker->firstName,
-            'last_name'     => $this->faker->lastName,
-            'username'      => $this->faker->unique()->userName,
-            'email'         => $this->faker->unique()->email,
+            'name'    => 'Speed wheel',
+            'username'      => 'workshop',
             'password'      => 'password',
-            'city'          => $this->faker->city,
-            'birthday'      => $this->faker->date('Y-m-d', 'now'),
-            'gender'        => $this->faker->randomElement(["male", "female", "other"]),
-            'address'       => $this->faker->address,
-            'role'          => $this->faker->randomElement(["manager", "fan"]),
+            'address'       => "Dokki, mosaddak",
         ];
     }
 }

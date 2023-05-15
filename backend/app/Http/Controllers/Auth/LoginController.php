@@ -17,9 +17,9 @@ class LoginController extends Controller
 
 
     /**
-    * @group Uesr
+    * @group Auth
     * @unauthenticated
-    * @queryParam email required	
+    * @queryParam username required	
     * @queryParam password required
     * @response 200 {
     *  "token": "token_value",
@@ -74,14 +74,14 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $token)
     {
-        $User = User::where("email",$request->email)->first();
         return response()->json([
             'token' => $token,
-            'token_type' => "bearer",
-            'verified' => ($User->email_verified_at != null)? 1: 0,
-            'first_name' => $User->first_name,
-            'last_name' => $User->last_name,
-            'role' => $User->role
+            'token_type' => "bearer"
         ],200);
+    }
+
+    public function username()
+    {
+        return 'username';
     }
 }

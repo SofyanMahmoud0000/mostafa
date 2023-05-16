@@ -377,11 +377,11 @@ export default function Home() {
         return () => clearInterval(interval);
     }, [matchId]);
 
-    if (getRole() === "admin") {
-        history.push("/home/admin/");
+    if (getRole() === "provider") {
+        history.push("/home/provider/");
     }
-    if (getRole() === "manager") {
-        history.push("/home/manager/");
+    if (getRole() === "workshop") {
+        history.push("/home/workshop/");
     }
 
     return (

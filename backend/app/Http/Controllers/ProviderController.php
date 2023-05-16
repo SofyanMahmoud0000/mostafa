@@ -20,9 +20,11 @@ class ProviderController extends Controller
             $reason = Reason::find($ticket->reason_id);
             $ticket["reason"] = $reason->description;
             $ticket["price"] = $reason->price;
+            $ticket["driver"] = Driver::find($ticket->driver_id)->name;
+            $ticket["workshop"] = User::find($ticket->workshop_id)->name;
         }
         return response()->json([
-            'ticketds' => $tickets
+            'tickets' => $tickets
         ],200);
     }
 
@@ -34,6 +36,17 @@ class ProviderController extends Controller
         $drivers = Driver::all();
         return response()->json([
             'drivers' => $drivers
+        ],200);
+    }
+
+    /**
+    * @group Provider
+    * @authenticated
+    */
+    public function listWorkshops(){
+        $workshops = User::all();
+        return response()->json([
+            'workshops' => $workshops
         ],200);
     }
 

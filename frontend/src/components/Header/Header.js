@@ -100,19 +100,19 @@ export default function Header({ auth, setAuth }) {
               <Button
                 color="inherit"
                 onClick={(e) => {
-                  history.push("/login");
+                  history.push("/provider/login");
                 }}
               >
                 Login
               </Button>
-              <Button
+              {/* <Button
                 color="inherit"
                 onClick={(e) => {
                   history.push("/register");
                 }}
               >
                 Register
-              </Button>
+              </Button> */}
             </div>
           )}
         </Toolbar>

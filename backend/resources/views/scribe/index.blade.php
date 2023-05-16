@@ -43,7 +43,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: May 15 2023</li>
+            <li>Last updated: May 16 2023</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -62,7 +62,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>Base URL</p>
 </blockquote>
 <pre><code class="language-yaml">http://localhost:8000</code></pre><h1>Authenticating requests</h1>
-<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p><h1>Auth</h1>
 <h2>api/workshop/login</h2>
@@ -70,7 +70,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost:8000/api/workshop/login?username=ut&amp;password=ut" \
+    "http://localhost:8000/api/workshop/login?username=quibusdam&amp;password=quae" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -78,8 +78,8 @@ You can switch the language used with the tabs at the top right (or from the nav
 );
 
 let params = {
-    "username": "ut",
-    "password": "ut",
+    "username": "quibusdam",
+    "password": "quae",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -139,7 +139,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost:8000/api/provider/login?username=modi&amp;password=explicabo" \
+    "http://localhost:8000/api/provider/login?username=soluta&amp;password=temporibus" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -147,8 +147,8 @@ fetch(url, {
 );
 
 let params = {
-    "username": "modi",
-    "password": "explicabo",
+    "username": "soluta",
+    "password": "temporibus",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -415,27 +415,19 @@ fetch(url, {
 <label id="auth-GETapi-provider-reasons" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-provider-reasons" data-component="header"></label>
 </p>
 </form>
-<h2>api/provider/tickets/create</h2>
+<h2>api/provider/workshops</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost:8000/api/provider/tickets/create?driver_id=sunt&amp;workshop_id=temporibus&amp;reason_id=excepturi" \
+    -G "http://localhost:8000/api/provider/workshops" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/provider/tickets/create"
+    "http://localhost:8000/api/provider/workshops"
 );
-
-let params = {
-    "driver_id": "sunt",
-    "workshop_id": "temporibus",
-    "reason_id": "excepturi",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
     "Authorization": "Bearer {YOUR_AUTH_KEY}",
@@ -453,44 +445,105 @@ fetch(url, {
 <pre><code class="language-json">{
     "error": "forbidden"
 }</code></pre>
-<div id="execution-results-GETapi-provider-tickets-create" hidden>
-    <blockquote>Received response<span id="execution-response-status-GETapi-provider-tickets-create"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-provider-tickets-create"></code></pre>
+<div id="execution-results-GETapi-provider-workshops" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-provider-workshops"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-provider-workshops"></code></pre>
 </div>
-<div id="execution-error-GETapi-provider-tickets-create" hidden>
+<div id="execution-error-GETapi-provider-workshops" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-provider-tickets-create"></code></pre>
+    <pre><code id="execution-error-message-GETapi-provider-workshops"></code></pre>
 </div>
-<form id="form-GETapi-provider-tickets-create" data-method="GET" data-path="api/provider/tickets/create" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-provider-tickets-create', this);">
+<form id="form-GETapi-provider-workshops" data-method="GET" data-path="api/provider/workshops" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-provider-workshops', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-provider-tickets-create" onclick="tryItOut('GETapi-provider-tickets-create');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-provider-tickets-create" onclick="cancelTryOut('GETapi-provider-tickets-create');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-provider-tickets-create" hidden>Send Request 💥</button>
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-provider-workshops" onclick="tryItOut('GETapi-provider-workshops');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-provider-workshops" onclick="cancelTryOut('GETapi-provider-workshops');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-provider-workshops" hidden>Send Request 💥</button>
     </h3>
 <p>
 <small class="badge badge-green">GET</small>
+ <b><code>api/provider/workshops</code></b>
+</p>
+<p>
+<label id="auth-GETapi-provider-workshops" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-provider-workshops" data-component="header"></label>
+</p>
+</form>
+<h2>api/provider/tickets/create</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost:8000/api/provider/tickets/create?driver_id=molestiae&amp;workshop_id=consequatur&amp;reason_id=quia" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/provider/tickets/create"
+);
+
+let params = {
+    "driver_id": "molestiae",
+    "workshop_id": "consequatur",
+    "reason_id": "quia",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (201):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "forbidden"
+}</code></pre>
+<div id="execution-results-POSTapi-provider-tickets-create" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTapi-provider-tickets-create"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-provider-tickets-create"></code></pre>
+</div>
+<div id="execution-error-POSTapi-provider-tickets-create" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-provider-tickets-create"></code></pre>
+</div>
+<form id="form-POSTapi-provider-tickets-create" data-method="POST" data-path="api/provider/tickets/create" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-provider-tickets-create', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-provider-tickets-create" onclick="tryItOut('POSTapi-provider-tickets-create');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-provider-tickets-create" onclick="cancelTryOut('POSTapi-provider-tickets-create');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-provider-tickets-create" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
  <b><code>api/provider/tickets/create</code></b>
 </p>
 <p>
-<label id="auth-GETapi-provider-tickets-create" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-provider-tickets-create" data-component="header"></label>
+<label id="auth-POSTapi-provider-tickets-create" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="POSTapi-provider-tickets-create" data-component="header"></label>
 </p>
 <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
 <p>
 <b><code>driver_id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="driver_id" data-endpoint="GETapi-provider-tickets-create" data-component="query" required  hidden>
+<input type="text" name="driver_id" data-endpoint="POSTapi-provider-tickets-create" data-component="query" required  hidden>
 <br>
 
 </p>
 <p>
 <b><code>workshop_id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="workshop_id" data-endpoint="GETapi-provider-tickets-create" data-component="query" required  hidden>
+<input type="text" name="workshop_id" data-endpoint="POSTapi-provider-tickets-create" data-component="query" required  hidden>
 <br>
 
 </p>
 <p>
 <b><code>reason_id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="reason_id" data-endpoint="GETapi-provider-tickets-create" data-component="query" required  hidden>
+<input type="text" name="reason_id" data-endpoint="POSTapi-provider-tickets-create" data-component="query" required  hidden>
 <br>
 
 </p>
@@ -501,12 +554,12 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost:8000/api/provider/tickets/remove/accusamus" \
+    -G "http://localhost:8000/api/provider/tickets/remove/recusandae" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/provider/tickets/remove/accusamus"
+    "http://localhost:8000/api/provider/tickets/remove/recusandae"
 );
 
 let headers = {
@@ -614,12 +667,12 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost:8000/api/workshop/tickets/resolve/eligendi" \
+    -G "http://localhost:8000/api/workshop/tickets/resolve/cupiditate" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/workshop/tickets/resolve/eligendi"
+    "http://localhost:8000/api/workshop/tickets/resolve/cupiditate"
 );
 
 let headers = {

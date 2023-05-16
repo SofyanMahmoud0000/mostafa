@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
 export default function Login({ type }) {
     apiBaseUrl = apiBaseUrl?.apiBaseUrl
     const classes = useStyles();
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [auth, setAuth] = React.useState(isAuth());
     const [errorOpen, setErrorOpen] = useState(false);
@@ -61,30 +61,22 @@ export default function Login({ type }) {
         try {
             e.preventDefault();
             const endpointUrl = type
-                ? process.env.REACT_APP_BASE_URL + "admin/login/"
-                : process.env.REACT_APP_BASE_URL + "user/login/";
+                ? process.env.REACT_APP_BASE_URL + "provider/login/"
+                : process.env.REACT_APP_BASE_URL + "workshop/login/";
             const { data } = await Axios.post(endpointUrl, {
-                email: email,
-                username: email,
+                username: username,
                 password: password
             });
             if (data.token) {
                 if (type) {
                     saveToken(data.token);
-                    saveRole("admin");
+                    saveRole("provider");
                     setAuth(true);
-                } else if (!type && data.verified) {
+                } else if (!type) {
                     saveToken(data.token);
-                    saveRole(data.role);
+                    saveRole("workshop");
                     setAuth(true);
-                } else {
-                    setErrorMessage(
-                        "Sorry " +
-                            data.first_name +
-                            " your account is not verified yet!"
-                    );
-                    setErrorOpen(true);
-                }
+                } 
             } else {
                 setErrorMessage(data.auth);
                 setErrorOpen(true);
@@ -135,12 +127,12 @@ export default function Login({ type }) {
                                 margin="normal"
                                 required
                                 fullWidth
-                                id="email"
-                                label="Email"
-                                name="email"
-                                value={email}
+                                id="username"
+                                label="Username"
+                                name="username"
+                                value={username}
                                 onChange={e => {
-                                    setEmail(e.target.value);
+                                    setUsername(e.target.value);
                                 }}
                                 autoFocus
                             />

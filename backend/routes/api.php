@@ -23,7 +23,8 @@ Route::group(["middleware" => ["authenticated:provider,null"]],function(){
     Route::get("provider/tickets", "ProviderController@listTickets");
     Route::get("provider/drivers", "ProviderController@listDrivers");
     Route::get("provider/reasons", "ProviderController@listReasons");
-    Route::get("provider/tickets/create", "ProviderController@createTicket");
+    Route::get("provider/workshops", "ProviderController@listWorkshops");
+    Route::post("provider/tickets/create", "ProviderController@createTicket");
     Route::get("provider/tickets/remove/{id}", "ProviderController@removeTicket");
 });
 

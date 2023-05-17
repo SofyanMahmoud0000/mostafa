@@ -21,5 +21,26 @@ class DriverSeeder extends Seeder
         ];
 
         Driver::create($data);
+
+        $data = [
+            'name' => "حسن مدينة نصر",
+            'card_number' => 21987984739218,
+        ];
+
+        Driver::create($data);
+
+        $data = [
+            'name' => "خالد السواق",
+            'card_number' => 21987984739218,
+        ];
+
+        Driver::create($data);
+
+        $data = [
+            'name' => "ابو مريم",
+            'card_number' => 21987984739218,
+        ];
+
+        Driver::create($data);
     }
 }

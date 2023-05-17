@@ -16,21 +16,36 @@ class ReasonSeeder extends Seeder
     {
         $data = [
             'description' => "تركيب خابور",
-            'price' => 150,
+            'price' => 80,
         ];
 
         Reason::create($data);
 
         $data = [
-            'description' => "تزويد الكوتشي",
-            'price' => 100,
+            'description' => "تزويد الكاوتش",
+            'price' => 10,
         ];
 
         Reason::create($data);
 
         $data = [
             'description' => "تغير زيت",
-            'price' => 50,
+            'price' => 300,
+        ];
+
+        Reason::create($data);
+
+        $data = [
+            'description' => "تغيير زجاج امامي ",
+            'price' => 1500,
+        ];
+
+        Reason::create($data);
+
+
+        $data = [
+            'description' => "تركيب فانوس خلفي",
+            'price' => 200,
         ];
 
         Reason::create($data);

@@ -43,7 +43,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: May 16 2023</li>
+            <li>Last updated: May 17 2023</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -62,7 +62,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>Base URL</p>
 </blockquote>
 <pre><code class="language-yaml">http://localhost:8000</code></pre><h1>Authenticating requests</h1>
-<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p><h1>Auth</h1>
 <h2>api/workshop/login</h2>
@@ -70,7 +70,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost:8000/api/workshop/login?username=quibusdam&amp;password=quae" \
+    "http://localhost:8000/api/workshop/login?username=debitis&amp;password=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -78,8 +78,8 @@ You can switch the language used with the tabs at the top right (or from the nav
 );
 
 let params = {
-    "username": "quibusdam",
-    "password": "quae",
+    "username": "debitis",
+    "password": "et",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -139,7 +139,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost:8000/api/provider/login?username=soluta&amp;password=temporibus" \
+    "http://localhost:8000/api/provider/login?username=autem&amp;password=id" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -147,8 +147,8 @@ fetch(url, {
 );
 
 let params = {
-    "username": "soluta",
-    "password": "temporibus",
+    "username": "autem",
+    "password": "id",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -474,7 +474,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost:8000/api/provider/tickets/create?driver_id=molestiae&amp;workshop_id=consequatur&amp;reason_id=quia" \
+    "http://localhost:8000/api/provider/tickets/create?driver_id=quod&amp;workshop_id=non&amp;reason_id=vel" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
@@ -483,9 +483,9 @@ fetch(url, {
 );
 
 let params = {
-    "driver_id": "molestiae",
-    "workshop_id": "consequatur",
-    "reason_id": "quia",
+    "driver_id": "quod",
+    "workshop_id": "non",
+    "reason_id": "vel",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -554,12 +554,12 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost:8000/api/provider/tickets/remove/recusandae" \
+    -G "http://localhost:8000/api/provider/tickets/remove/sit" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/provider/tickets/remove/recusandae"
+    "http://localhost:8000/api/provider/tickets/remove/sit"
 );
 
 let headers = {
@@ -667,12 +667,12 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost:8000/api/workshop/tickets/resolve/cupiditate" \
+    -G "http://localhost:8000/api/workshop/tickets/resolve/illum" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/workshop/tickets/resolve/cupiditate"
+    "http://localhost:8000/api/workshop/tickets/resolve/illum"
 );
 
 let headers = {

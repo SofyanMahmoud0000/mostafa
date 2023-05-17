@@ -399,7 +399,7 @@ export default function Home() {
                             color="textPrimary"
                             gutterBottom
                         >
-                            MATCHERA
+                            MOSTAFA
                         </Typography>
                         <Typography
                             variant="h5"
@@ -407,8 +407,7 @@ export default function Home() {
                             color="textSecondary"
                             paragraph
                         >
-                            Welcome to the first online reservation service for
-                            matches, it is avaiable right now!
+                            Welcome to our website
                         </Typography>
                     </Container>
                 </div>

@@ -14,9 +14,9 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/home/provider" component={HomeAdmin} />
         <Route exact path="/home/workshop" component={HomeManger} />
-        <Route path="/register" component={Register} />
+        {/* <Route path="/register" component={Register} /> */}
         <Route exact path="/workshop/login" component={Login} />
-        <Route exact path="/profile" component={Profile} />
+        {/* <Route exact path="/profile" component={Profile} /> */}
         <Route exact path="/provider/login">
           <Login type={true} />{" "}
         </Route>

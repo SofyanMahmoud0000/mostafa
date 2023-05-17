@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminSeeder::class);
         $this->call(ReasonSeeder::class);
         $this->call(DriverSeeder::class);
-        \App\Models\User::factory(1)->create();
+        $this->call(WorkshopSeeder::class);
+        // \App\Models\User::factory(1)->create();
     }
 }

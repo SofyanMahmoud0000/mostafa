@@ -48,7 +48,7 @@ export default function Header({ auth, setAuth }) {
             style={{ cursor: "pointer" }}
             onClick={(e) => history.push("/")}
           >
-            Matchera
+            Mostafa
           </Typography>
           {auth ? (
             <div>

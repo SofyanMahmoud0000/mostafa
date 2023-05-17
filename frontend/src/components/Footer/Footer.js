@@ -12,7 +12,7 @@ export default function Footer() {
           color="textSecondary"
           component="p"
         >
-          All copyrights reserved to matchera team
+          All copyrights reserved to Sofyan team
         </Typography>
 
         <Typography variant="body2" color="textSecondary" align="center">

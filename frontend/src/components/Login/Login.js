@@ -76,7 +76,7 @@ export default function Login({ type }) {
                     saveToken(data.token);
                     saveRole("workshop");
                     setAuth(true);
-                } 
+                }
             } else {
                 setErrorMessage(data.auth);
                 setErrorOpen(true);
@@ -161,9 +161,19 @@ export default function Login({ type }) {
                             </Button>
                             <Grid container>
                                 <Grid container justify="center">
-                                    <Link to="/register" variant="body2">
-                                        Don't have an account? Sign Up
-                                    </Link>
+                                    {
+                                        type ? (
+                                            <Link to="/workshop/login" variant="body2">
+                                                Login as a workshop
+                                            </Link>
+                                        ) : (
+                                            <Link to="/provider/login" variant="body2">
+                                                Login as a provider
+                                            </Link>
+                                        )
+                                    }
+
+
                                 </Grid>
                             </Grid>
                         </form>

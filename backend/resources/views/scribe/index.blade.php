@@ -62,7 +62,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>Base URL</p>
 </blockquote>
 <pre><code class="language-yaml">http://localhost:8000</code></pre><h1>Authenticating requests</h1>
-<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p><h1>Auth</h1>
 <h2>api/workshop/login</h2>
@@ -70,7 +70,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost:8000/api/workshop/login?username=debitis&amp;password=et" \
+    "http://localhost:8000/api/workshop/login?username=et&amp;password=voluptas" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -78,8 +78,8 @@ You can switch the language used with the tabs at the top right (or from the nav
 );
 
 let params = {
-    "username": "debitis",
-    "password": "et",
+    "username": "et",
+    "password": "voluptas",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -139,7 +139,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost:8000/api/provider/login?username=autem&amp;password=id" \
+    "http://localhost:8000/api/provider/login?username=animi&amp;password=esse" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -147,8 +147,8 @@ fetch(url, {
 );
 
 let params = {
-    "username": "autem",
-    "password": "id",
+    "username": "animi",
+    "password": "esse",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -474,7 +474,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost:8000/api/provider/tickets/create?driver_id=quod&amp;workshop_id=non&amp;reason_id=vel" \
+    "http://localhost:8000/api/provider/tickets/create?driver_id=unde&amp;workshop_id=neque&amp;reason_id=hic" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
@@ -483,9 +483,9 @@ fetch(url, {
 );
 
 let params = {
-    "driver_id": "quod",
-    "workshop_id": "non",
-    "reason_id": "vel",
+    "driver_id": "unde",
+    "workshop_id": "neque",
+    "reason_id": "hic",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -554,12 +554,12 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost:8000/api/provider/tickets/remove/sit" \
+    -G "http://localhost:8000/api/provider/tickets/remove/excepturi" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/provider/tickets/remove/sit"
+    "http://localhost:8000/api/provider/tickets/remove/excepturi"
 );
 
 let headers = {
@@ -667,12 +667,12 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost:8000/api/workshop/tickets/resolve/illum" \
+    -G "http://localhost:8000/api/workshop/tickets/resolve/molestiae" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/workshop/tickets/resolve/illum"
+    "http://localhost:8000/api/workshop/tickets/resolve/molestiae"
 );
 
 let headers = {

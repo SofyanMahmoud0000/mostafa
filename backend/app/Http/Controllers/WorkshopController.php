@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ticket;
 use App\Models\Reason;
+use App\Models\Driver;
+use App\Models\Provider;
 
 class WorkshopController extends Controller
 {
@@ -18,6 +20,8 @@ class WorkshopController extends Controller
             $reason = Reason::find($ticket->reason_id);
             $ticket["reason"] = $reason->description;
             $ticket["price"] = $reason->price;
+            $ticket["driver"] = Driver::find($ticket->driver_id)->name;
+            $ticket["provider"] = Provider::find($ticket->provider_id)->name;
         }
         return response()->json([
             'tickets' => $tickets

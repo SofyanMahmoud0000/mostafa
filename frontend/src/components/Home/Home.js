@@ -381,6 +381,7 @@ export default function Home() {
         history.push("/home/provider/");
     }
     if (getRole() === "workshop") {
+        console.log("Going to workshop")
         history.push("/home/workshop/");
     }
 
